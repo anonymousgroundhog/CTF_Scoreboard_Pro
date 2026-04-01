@@ -1,262 +1,276 @@
-# CIHSCDC Competition Manager
+# CTF Scoreboard Pro
 
-A desktop scoreboard and competition management tool for running CTF/cybersecurity competitions. Tracks inject scores, uptime, red team assessments, and live leaderboard standings for multiple teams. Supports Discord webhook integration for broadcasting injects to teams in real time.
+**A modern, professional web-based competition management system for CTF/cybersecurity competitions.**
+
+![Version](https://img.shields.io/badge/version-2.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+## Features
+
+🏆 **Live Leaderboard** — Real-time team rankings with automatic scoring updates
+
+📝 **Data Entry** — Grade inject submissions with auto-lateness calculation and Discord broadcast
+
+📊 **Scores Dashboard** — Full scoring breakdown with weighted percentages and formulas
+
+🔍 **Uptime Scoring** — Automated service availability monitoring with manual or periodic runs
+
+⚙️ **Management** — Configure injects, webhooks, teams via web UI or CSV/JSON import/export
+
+🎯 **Discord Integration** — Broadcast injects to team channels with automatic timestamp recording
 
 ---
 
-## Requirements
+## Quick Start
 
-- Python 3.8 or later
-- `tkinter` (included with most Python installations)
-- `requests` library
-
-### Install dependencies
+### 1. Clone & Install
 
 ```bash
-pip install requests
+cd CTF_Scoreboard_Pro
+npm install
+npm install --prefix server
+npm install --prefix client
 ```
 
-> **Note:** On some Linux systems, `tkinter` is a separate package. Install it with:
-> ```bash
-> sudo apt install python3-tk   # Debian/Ubuntu
-> sudo dnf install python3-tkinter  # Fedora/RHEL
-> ```
-
----
-
-## Running the Application
+### 2. Start the Application
 
 ```bash
-python scoreboard.py
+npm run dev
 ```
 
-The window opens at 1650×900. A widescreen monitor is recommended.
+Open **http://localhost:5173** in your browser.
+
+### 3. Configure Server (if needed)
+
+Click ⚙️ in the top-right to change API server address.
 
 ---
 
-## First-Time Setup
+## 📖 Complete Setup & User Guide
 
-### Step 1 — Load or configure your teams
+→ **[Read SETUP.md](./SETUP.md)** for:
 
-You have two options:
-
-**Option A: Import a CSV file**
-
-Go to the **Management** tab and click **Import Teams CSV**. The CSV must have at minimum these column headers:
-
-| Column | Description |
-|---|---|
-| `Team Name` or `Name` | The team's display name |
-| `School Name` | The school the team represents |
-
-Example:
-```
-Team Name,School Name
-VADER,Wheaton Warrenville South HS
-Team 404,Pekin Community HS
-```
-
-**Option B: Edit `scoreboard.py` defaults**
-
-The `init_defaults()` method near the top of the file contains a hardcoded team list. Edit this list before launching if you want teams pre-loaded without a CSV:
-
-```python
-t_list = [
-    ("Team Name", "School Name"),
-    ...
-]
-```
+- Detailed requirements
+- Team and inject configuration
+- Feature guides for each tab
+- Uptime scoring setup
+- Troubleshooting
 
 ---
 
-### Step 2 — Load or configure your injects
+## Architecture
 
-**Option A: Import a CSV file**
+### Frontend (React + Vite)
 
-In the **Management** tab, click **Import Injects CSV**. Required column headers:
+- Modern, responsive UI with dark cybersecurity theme
+- Tabs for Leaderboard, Data Entry, Scores, Uptime Scoring, Management
+- Real-time updates via polling
+- Configurable server connection
 
-| Column | Description |
-|---|---|
-| `Description ` *(note trailing space)* or `Inject` | Inject name/title |
-| `Solution` | Answer key or grading notes |
-| `Time to complete` | Duration in minutes |
-| `Approx Release Time` | Scheduled release time (e.g. `10:55`) |
-| `Approx Due Time` | Deadline (e.g. `11:25`) |
+### Backend (Express.js + TypeScript)
 
-**Option B: Add injects manually**
+- RESTful API for all operations
+- Automatic persistence to `team_scores.json`
+- Write-through saves on every mutation
+- CSV/JSON import-export
+- Discord webhook integration
+- Uptime scoring script runner
 
-In the **Management** tab, click **Add Inject Row** to create a blank row in the grid. Fill in:
-- **Name** — short inject title
-- **Description** — full inject prompt shown to graders as a tooltip
-- **Solution** — answer key (shown as a tooltip to graders)
-- **Duration(m)** — minutes teams have to complete it
-- **Rel Time** — release time (HH:MM)
-- **Due Time** — due time (HH:MM)
+### Data Storage
 
-Click **SAVE GRID CHANGES** when done. Injects will appear in the Data Entry and Scores tabs.
+- `team_scores.json` — Main state file
+- `autosave_scoreboard.json` — 5-minute auto-backup
+- No database required (file-based)
 
 ---
 
-### Step 3 — Configure Discord Webhooks (Optional)
+## File Structure
 
-Discord webhook integration allows you to broadcast injects to team channels directly from the app.
-
-1. In Discord, go to your inject announcement channel → **Edit Channel** → **Integrations** → **Webhooks** → **New Webhook**.
-2. Copy the webhook URL.
-3. Open `team_scores.json` (or an exported JSON file) and add the webhook under `"webhooks"`:
-
-```json
-"webhooks": {
-    "Channel Display Name": "https://discord.com/api/webhooks/..."
-}
+```
+CTF_Scoreboard_Pro/
+├── SETUP.md                    # Complete setup guide
+├── README.md                   # This file
+├── team_scores.json            # Main data file
+├── package.json                # Root scripts
+├── server/                     # Express API
+│   ├── src/index.ts            # Server entry
+│   ├── src/store.ts            # State management
+│   └── src/routes/             # API endpoints
+└── client/                     # React UI
+    ├── src/App.tsx             # Main app
+    ├── src/pages/              # Tab components
+    └── src/store/              # Zustand store
 ```
 
-4. Re-import the JSON via **Management** → **Import JSON**, or add the webhook before the first run.
+---
 
-The channel selector dropdown at the top of the **Data Entry** tab will populate with your configured channels.
+## API Endpoints
+
+| Method | Path | Purpose |
+|--------|------|---------|
+| GET | `/api/state` | Get full application state |
+| GET/POST/PUT/DELETE | `/api/teams[/:name]` | Team CRUD |
+| GET/POST/DELETE | `/api/injects[/:name]` | Inject CRUD |
+| POST | `/api/injects/batch` | Bulk save injects |
+| PUT | `/api/teams/:name/injects` | Save team inject scores |
+| GET | `/api/scoring/hosts` | List available hosts |
+| PUT | `/api/scoring/config` | Save team-host mappings |
+| POST | `/api/scoring/run` | Execute scoring script |
+| POST | `/api/scoring/sync` | Apply scoring results |
+| POST | `/api/scoring/reset` | Clear uptime scores |
+| POST | `/api/broadcast/:name` | Send Discord embed |
+| PUT | `/api/webhooks` | Save webhook URLs |
+| POST/GET | `/api/import-*` | Import CSV/JSON |
+| GET | `/api/export` | Download JSON |
 
 ---
 
-### Step 4 — Save/Load State
+## Scoring Formulas
 
-The app auto-saves all data to `autosave_scoreboard.json` every 5 minutes in the working directory.
-
-To manually save your full session state, go to **Management** → **Export JSON**. To restore it on a future run, use **Import JSON**.
-
----
-
-## Using the Application
-
-### Leaderboard Tab
-
-Displays a live-ranked table of all teams sorted by total score (descending).
-
-| Column | Description |
-|---|---|
-| Rank | Current standing |
-| Team | Team name |
-| School | School affiliation |
-| Uptime % | Raw uptime score |
-| Injects | Sum of all inject final scores |
-| Total | Combined score (Injects + Uptime + Red Team + Defense) |
-
-The leaderboard updates automatically whenever scores are saved.
-
----
-
-### Data Entry Tab
-
-Used to grade inject submissions for each team.
-
-1. Select a team from the left-hand list.
-2. For each inject, fill in:
-   - **Raw (0-10)** — the grader's raw score
-   - **Sub Time** — the time the team submitted (HH:MM or HH:MM:SS). If a Discord broadcast time exists, lateness is calculated automatically.
-   - **Mins Late** — minutes past the deadline. Auto-filled if Sub Time is provided; can be overridden manually.
-   - **Final Score** — calculated automatically as `Raw - Mins Late` (minimum 0).
-3. Click **SAVE SCORES** to commit the scores for that team.
-
-**Tooltips:** Hover over an inject name to see the full description and solution key.
-
-**Discord Broadcast:** Click the **Discord** button next to an inject to post the inject prompt to the selected Discord channel. The broadcast timestamp is recorded and used for automatic lateness calculation.
-
----
-
-### Scores Tab
-
-Displays a full scoring breakdown for all teams and allows entry of **Uptime** and **Red Team Assessment** raw scores.
-
-#### Calculated fields
-
-| Field | Formula |
-|---|---|
-| Uptime % | `Uptime / 50` |
-| Injects % | `Injects Total / 50` |
-| Defense against Red Team | `Red Team Assessment / 5` |
-| Total | `0.33 × Uptime% + 0.33 × Injects% + 0.33 × Defense%` |
-
-#### Entering scores
-
-At the bottom of the tab, use the input bar to:
-1. Select a **Team** from the dropdown.
-2. Enter the raw **Uptime** score.
-3. Enter the raw **Red Team Assessment** score.
-4. Optionally add a **Remarks** note.
-5. Click **Save**.
-
-The grid and leaderboard update immediately. Click **Refresh** at any time to recalculate.
-
----
-
-### Management Tab
-
-Manages inject configuration and data import/export.
-
-| Button | Action |
-|---|---|
-| Import Teams CSV | Load teams from a CSV file |
-| Import Injects CSV | Load injects from a CSV file |
-| Add Inject Row | Add a blank inject row to the grid |
-| SAVE GRID CHANGES | Commit all edits in the inject grid |
-| Export JSON | Save full session state to a JSON file |
-| Import JSON | Restore session state from a JSON file |
-
-You can edit inject names, descriptions, solutions, durations, release times, and due times directly in the grid. Click **Delete** on any row to remove that inject. Always click **SAVE GRID CHANGES** after editing.
-
----
-
-## JSON State File Structure
-
-The exported/autosaved JSON has the following structure:
-
-```json
-{
-    "teams": {
-        "Team Name": {
-            "school": "School Name",
-            "uptime": 0.0,
-            "red_team": 0.0,
-            "defense": 0.0,
-            "remarks": "",
-            "injects": {
-                "Inject Name": {
-                    "raw": 10.0,
-                    "sub_time": "11:30",
-                    "late": 5,
-                    "final": 5.0
-                }
-            }
-        }
-    },
-    "inject_data": {
-        "Inject Name": {
-            "desc": "Full inject description",
-            "sol": "Answer key",
-            "time": "30",
-            "release": "10:55",
-            "due": "11:25"
-        }
-    },
-    "webhooks": {
-        "Channel Name": "https://discord.com/api/webhooks/..."
-    },
-    "broadcast_times": {
-        "Inject Name": "10:55:00"
-    }
-}
+### Leaderboard Total (raw sum)
+```
+Total = Injects Total + Uptime + Red Team Assessment + Defense
 ```
 
-You can edit this file directly to pre-configure webhooks, teams, or injects before launching the app, then use **Import JSON** to load it.
+### Scores Tab Total (weighted)
+```
+Uptime % = Uptime ÷ 50
+Injects % = Injects Total ÷ 50
+Defense % = Red Team Assessment ÷ 5
+Total = 0.33×(Uptime %) + 0.33×(Injects %) + 0.33×(Defense %)
+```
+
+### Inject Final Score
+```
+Final Score = max(0, Raw Score - Minutes Late)
+```
 
 ---
 
-## Workflow Summary (Day of Competition)
+## System Requirements
 
-1. `python scoreboard.py`
-2. **Management** → Import Teams CSV and Import Injects CSV (or Import JSON if resuming)
-3. Configure Discord webhooks in the JSON and import
-4. As each inject is released: **Data Entry** tab → click **Discord** to broadcast to teams
-5. As submissions come in: select each team, fill in Raw score and Sub Time, click **SAVE SCORES**
-6. After the red team exercise: **Scores** tab → enter Uptime and Red Team Assessment for each team
-7. Monitor **Leaderboard** tab for live standings
-8. **Management** → Export JSON to archive final results
+- **Node.js** v18+ — [Download](https://nodejs.org)
+- **npm** — comes with Node.js
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+
+### Optional (for uptime scoring)
+
+- Python 3.8+
+- MySQL/MariaDB
+- sshpass (Linux/macOS)
+- `pip3 install mysql-connector-python`
+
+---
+
+## Common Tasks
+
+### Add Teams & Injects
+
+1. Open **Management** tab
+2. Click **Import Teams CSV** or **Import Injects CSV**
+3. Upload CSV files
+4. Edit in-place if needed
+5. Click **SAVE GRID CHANGES**
+
+### Grade Inject Submissions
+
+1. Open **Data Entry** tab
+2. Select team from left panel
+3. Enter raw scores, submission times
+4. Click **SAVE SCORES**
+5. Watch leaderboard update
+
+### Monitor Uptime
+
+1. Open **Uptime Scoring** tab
+2. Map teams to host IPs
+3. Click **Run** or enable **Auto-run Scoring**
+4. Click **Sync All Results Now**
+5. View uptime in **Leaderboard**
+
+### Broadcast Injects
+
+1. **Data Entry** tab → Select team
+2. Click 📢 button for an inject
+3. Select Discord channel
+4. Timestamp auto-recorded
+5. Lateness auto-calculated from broadcast
+
+---
+
+## Development
+
+### Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+Builds the server (TypeScript → JavaScript) and client (React → optimized bundle).
+
+### Ports
+
+- Frontend dev server: `localhost:5173`
+- Backend API server: `localhost:3001`
+- Vite proxies `/api` to backend
+
+---
+
+## Troubleshooting
+
+### Servers won't start
+```bash
+# Kill any running processes
+pkill -f "npm run dev"
+# Check ports aren't in use
+lsof -i :3001
+lsof -i :5173
+```
+
+### Teams/injects not loading
+- Check `team_scores.json` exists and is valid JSON
+- Try importing CSV again
+- Check browser console for errors (F12)
+
+### Uptime scoring fails
+- Install Python requirements: `pip3 install mysql-connector-python sshpass`
+- Verify MySQL database and credentials
+- Check `~/Downloads/scoring/hosts.txt` exists
+- Review SETUP.md's Uptime Scoring section
+
+### Server address issues
+- Click ⚙️ settings icon
+- Test connection before saving
+- Use full URL if backend is on different machine
+
+---
+
+## Data Backup
+
+Auto-save happens every 5 minutes to `autosave_scoreboard.json`.
+
+Manual export:
+1. **Management** tab → **Export JSON**
+2. Save to secure location
+3. Reload later via **Import JSON**
+
+---
+
+## License
+
+MIT — Use freely in educational and competition contexts.
+
+---
+
+## Support
+
+- Read [SETUP.md](./SETUP.md) for detailed guides
+- Check browser console (F12) for errors
+- Verify system requirements are met
+- Review troubleshooting section above
+
+---
+
+**Made for CIHSCDC and cybersecurity competition organizers.**  
+v2.0 — Web-based (2026)

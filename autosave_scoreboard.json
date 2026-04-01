@@ -2,353 +2,41 @@
     "teams": {
         "VADER": {
             "school": "Wheaton Warrenville South HS",
-            "uptime": 1.0,
-            "red_team": 1.0,
-            "defense": 0,
-            "injects": {
-                "Website inspection": {
-                    "raw": 10.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 10.0
-                },
-                "Testing Inject": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Certificate inspection": {
-                    "raw": 10.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 10.0
-                },
-                "Password Cracking": {
-                    "raw": 8.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 8.0
-                },
-                "Android App Malware": {
-                    "raw": 10.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 10.0
-                },
-                "Asset Inventory": {
-                    "raw": 10.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 10.0
-                },
-                "Cryptanalysis": {
-                    "raw": 10.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 10.0
-                },
-                "NextCloud": {
-                    "raw": 0.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 0.0
-                },
-                "Test Inject": {
-                    "raw": 0.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 0.0
-                }
-            },
-            "remarks": ""
+            "uptime": 0.0,
+            "red_team": 0.0,
+            "defense": 0.0,
+            "injects": {}
         },
         "Free RAM.gov": {
             "school": "Wheaton Warrenville South HS",
-            "uptime": 1.0,
-            "red_team": 1.0,
-            "defense": 0,
-            "injects": {
-                "Website inspection": {
-                    "raw": 0.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 0
-                },
-                "Testing Inject": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Certificate inspection": {
-                    "raw": 0.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 0
-                },
-                "Password Cracking": {
-                    "raw": 0.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 0
-                },
-                "Android App Malware": {
-                    "raw": 0.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 0
-                },
-                "Asset Inventory": {
-                    "raw": 0.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 0
-                },
-                "Cryptanalysis": {
-                    "raw": 0.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 0
-                },
-                "NextCloud": {
-                    "raw": 0.0,
-                    "sub_time": "",
-                    "late": 0,
-                    "final": 0
-                },
-                "Test Inject": {
-                    "raw": 10.0,
-                    "sub_time": "12:00",
-                    "late": 0,
-                    "final": 10.0
-                }
-            },
-            "remarks": ""
+            "uptime": 0.0,
+            "red_team": 0.0,
+            "defense": 0.0,
+            "injects": {}
         },
         "Team 404": {
             "school": "Pekin Community HS",
-            "uptime": 0,
-            "red_team": 0,
-            "defense": 0,
-            "injects": {
-                "Website inspection": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Testing Inject": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Certificate inspection": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Password Cracking": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Android App Malware": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Asset Inventory": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Cryptanalysis": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "NextCloud": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Test Inject": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0,
-                    "sub_time": ""
-                }
-            }
+            "uptime": 0.0,
+            "red_team": 0.0,
+            "defense": 0.0,
+            "injects": {}
         },
         "Team DHCP": {
             "school": "Pekin Community HS",
-            "uptime": 0,
-            "red_team": 0,
-            "defense": 0,
-            "injects": {
-                "Website inspection": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Testing Inject": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Certificate inspection": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Password Cracking": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Android App Malware": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Asset Inventory": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Cryptanalysis": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "NextCloud": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Test Inject": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0,
-                    "sub_time": ""
-                }
-            }
+            "uptime": 0.0,
+            "red_team": 0.0,
+            "defense": 0.0,
+            "injects": {}
         },
         "NCHS Cybersecurity": {
             "school": "Normal Community HS",
-            "uptime": 0,
-            "red_team": 0,
-            "defense": 0,
-            "injects": {
-                "Website inspection": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Testing Inject": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Certificate inspection": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Password Cracking": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Android App Malware": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Asset Inventory": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Cryptanalysis": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "NextCloud": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0
-                },
-                "Test Inject": {
-                    "raw": 0,
-                    "late": 0,
-                    "final": 0,
-                    "sub_time": ""
-                }
-            }
+            "uptime": 0.0,
+            "red_team": 0.0,
+            "defense": 0.0,
+            "injects": {}
         }
     },
-    "inject_data": {
-        "Website inspection": {
-            "desc": "Team, we have been informed that the following image needs inspection:\nhttps://jupiter.challenges.picoctf.org/problem/9670/ \n\nFind the hidden flag in this website and submit it in your team\u2019s inject-submissions channel on Discord.\nVerify SSL cert",
-            "sol": "Check for SHA256",
-            "time": "30",
-            "release": "10:55",
-            "due": "11:25"
-        },
-        "Certificate inspection": {
-            "desc": "How about we take you on an adventure on exploring digital certificate signing requests. Take a look at this CSR file: https://artifacts.picoctf.net/c/425/readmycert.csr \n\nFind the hidden flag in this file and submit it to your team\u2019s inject-submissions channel on Discord.\nThis is a test inject for bot purposes",
-            "sol": "",
-            "time": "30",
-            "release": "11:25",
-            "due": "11:55"
-        },
-        "Password Cracking": {
-            "desc": "Can you break into this super secure portal? https://jupiter.challenges.picoctf.org/problem/17682/ \nSubmit the flag in your team\u2019s inject-submissions channel on Discord. It is in the same format as the previous flags.",
-            "sol": "",
-            "time": "30",
-            "release": "1:30",
-            "due": "2:00"
-        },
-        "Android App Malware": {
-            "desc": "Install the jadx tool using the following commands:\ngit clone https://github.com/skylot/jadx.git \ncd jadx\n./gradlew dist\n\nNext download the Wallpaper app: https://apkpure.com/homely-wallpaper/com.race.mely.wpaper/ \n\nInvestigate it and determine what is suspicious about this wallpaper app.\n\nSubmit the flag in your team\u2019s inject-submissions channel on Discord. It is in the same format as the previous flags.",
-            "sol": "",
-            "time": "23",
-            "release": "2:37",
-            "due": "3:00"
-        },
-        "Asset Inventory": {
-            "desc": "Your predecessors did a poor job keeping documentation updated and we don't have an understanding of what services are running on our systems. Lacking a clear picture makes it difficult to make decisions on resource allocation. \n\nCreate a document that lists the following for each internal machine on your LAN:\n    \u2022 System Name\n    \u2022 O/S and Version (Windows, Linux etc.)\n    \u2022 IP Address and MAC Address\n    \u2022 Application(s) running\n    \u2022 List of Admin/User/Service Accounts (without passwords)\n    \u2022 List of Services running and versions\n    \u2022 List of Open Ports\n\nSubmit this document on your team\u2019s inject-submissions channel on Discord.",
-            "sol": "",
-            "time": "60",
-            "release": "2:00",
-            "due": "3:00"
-        },
-        "Cryptanalysis": {
-            "desc": "The one-time pad can be cryptographically secure, but not when you know the key. Can you solve this? We've given you the encrypted flag, key, and a table to help UFJKXQZQUNB with the key of SOLVECRYPTO. Can you use this table to solve it?. \n\nDecrypt the following message encrypted using a classical cipher: T ldvpo pgpcjzyp, hsle oz hp yppo ezolj?\nFlag: I asked everyone, what do we need today?",
-            "sol": "",
-            "time": "35",
-            "release": "2:25",
-            "due": "3:00"
-        },
-        "NextCloud": {
-            "desc": "Install NextCloud (a dropbox clone) onto one of your servers, and set up the sync client on your internal Windows 7 client machine.  \n\nSet up the client to sync everything, add a file name \u201cTeam XX.txt\u201d through the web browser interface to Nextcloud on the server, and show that it appears on the Windows side (in Windows Explorer, show the shared folder.  It may take a few minutes to sync.\n\nHave your room judge verify that the file appears in both the client (Windows Explorer) and the server (web browser interface).  Have them send us a Slack message that the inject is complete.\n\nHint: You\u2019ll need to use HTTP, not HTTPS, to connect from client to server, since we don\u2019t have signed certificates.",
-            "sol": "",
-            "time": "240",
-            "release": "3:00 PM",
-            "due": "7:00"
-        },
-        "Test Inject": {
-            "desc": "A new test.\n\nYou can ignore this message.",
-            "sol": "",
-            "time": "23",
-            "release": "2:00 PM",
-            "due": "3:00 PM"
-        }
-    },
-    "webhooks": {
-        "Inject Bot": "https://discord.com/api/webhooks/1487867084422512723/bItf6uE3onjCU2nEAjnByFFxxhmJw7aK8AtQ1vr6n9uHQkhvJJa4w3uWLUc5gRymb-6S"
-    },
-    "broadcast_times": {
-        "Test Inject": "13:12:59"
-    }
+    "inject_data": {},
+    "webhooks": {},
+    "broadcast_times": {}
 }
