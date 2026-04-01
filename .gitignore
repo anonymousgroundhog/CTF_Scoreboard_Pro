@@ -1,0 +1,108 @@
+# Dependencies
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production.local
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.settings/
+*.sublime-workspace
+.vscode-settings.json
+
+# Python-related
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Local state files (don't commit competition state)
+autosave_scoreboard.json
+team_scores.json.bak
+team_scores.json.old
+*.backup
+
+# Sensitive data
+credentials.json
+secrets.json
+.credentials
+*.key
+*.pem
+
+# OS-specific
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+.TemporaryItems
+.VolumeIcon.icns
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.log.*
+.tmp/
+
+# Testing
+coverage/
+.nyc_output/
+.mocha_cache/
+.jest_cache/
+
+# TypeScript
+*.tsbuildinfo
+.tsconfig.json.bak
+
+# Vite cache
+.vite/
+
+# Mac
+.DS_Store
+
+# Project-specific
+/Downloads/
+scoring/
+.claude/
+.history/
+*.orig
