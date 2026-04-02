@@ -32,13 +32,30 @@ export function getFullAPIBase(): string {
 const API_BASE = getAPIBase();
 
 async function fetchApi<T>(path: string, options?: RequestInit): Promise<T> {
+  const token = typeof window !== 'undefined' ? localStorage.getItem('auth_token') : null;
+
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+    ...options?.headers as Record<string, string>,
+  };
+
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
   const res = await fetch(`${API_BASE}${path}`, {
     ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...options?.headers,
-    },
+    headers,
   });
+
+  if (res.status === 401) {
+    // Token expired or invalid
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('auth_token');
+      window.location.href = '/';
+    }
+    throw new Error('Authentication expired. Please login again.');
+  }
 
   if (!res.ok) {
     const error = await res.json().catch(() => ({ error: res.statusText }));
@@ -47,6 +64,20 @@ async function fetchApi<T>(path: string, options?: RequestInit): Promise<T> {
 
   return res.json();
 }
+
+// Auth API
+export const login = (password: string) =>
+  fetchApi<{ token: string; message: string }>('/auth/login', {
+    method: 'POST',
+    body: JSON.stringify({ password }),
+  });
+
+export const verifyToken = (token: string) =>
+  fetch(`${API_BASE}/auth/verify`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ token }),
+  }).then((res) => res.json() as Promise<{ valid: boolean }>);
 
 // State
 export const getState = () => fetchApi<AppState>('/state');

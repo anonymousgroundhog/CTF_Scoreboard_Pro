@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import { loadState, persistState } from './store.js';
+import { authMiddleware, publicMiddleware } from './auth.js';
+import authRouter from './routes/auth.js';
 import stateRouter from './routes/state.js';
 import teamsRouter from './routes/teams.js';
 import injectsRouter from './routes/injects.js';
@@ -16,14 +18,19 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
-// Mount routes
-app.use('/api/state', stateRouter);
-app.use('/api/teams', teamsRouter);
-app.use('/api/injects', injectsRouter);
-app.use('/api/broadcast', broadcastRouter);
-app.use('/api/webhooks', webhooksRouter);
-app.use('/api/scoring', scoringRouter);
-app.use('/api', importExportRouter);
+// Public routes (no auth required)
+app.use('/api/auth', authRouter);
+app.use('/api/state', publicMiddleware, stateRouter); // State is public (for leaderboard)
+
+// Protected routes (auth required)
+app.use('/api/teams', authMiddleware, teamsRouter);
+app.use('/api/injects', authMiddleware, injectsRouter);
+app.use('/api/broadcast', authMiddleware, broadcastRouter);
+app.use('/api/webhooks', authMiddleware, webhooksRouter);
+app.use('/api/scoring', authMiddleware, scoringRouter);
+app.use('/api/import', authMiddleware);
+app.use('/api/export', authMiddleware);
+app.use('/api', authMiddleware, importExportRouter);
 
 // Error handler
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {

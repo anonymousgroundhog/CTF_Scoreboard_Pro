@@ -2,7 +2,7 @@
     "teams": {
         "VADER": {
             "school": "Wheaton Warrenville South HS",
-            "uptime": 0,
+            "uptime": 23,
             "red_team": 0,
             "defense": 0,
             "injects": {
@@ -69,7 +69,7 @@
         },
         "Free RAM.gov": {
             "school": "Wheaton Warrenville South HS",
-            "uptime": 0,
+            "uptime": 47,
             "red_team": 0,
             "defense": 0,
             "injects": {
@@ -136,7 +136,7 @@
         },
         "Team 404": {
             "school": "Pekin Community HS",
-            "uptime": 0,
+            "uptime": 46,
             "red_team": 0,
             "defense": 0,
             "injects": {
@@ -203,7 +203,7 @@
         },
         "Team DHCP": {
             "school": "Pekin Community HS",
-            "uptime": 0,
+            "uptime": 18,
             "red_team": 0,
             "defense": 0,
             "injects": {
@@ -270,7 +270,7 @@
         },
         "NCHS Cybersecurity": {
             "school": "Normal Community HS",
-            "uptime": 0,
+            "uptime": 23,
             "red_team": 0,
             "defense": 0,
             "injects": {
