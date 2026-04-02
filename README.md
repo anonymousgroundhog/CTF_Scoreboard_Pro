@@ -40,9 +40,123 @@ npm run dev
 
 Open **http://localhost:5173** in your browser.
 
+**Default Admin Password:** `admin`
+
+⚠️ **Important:** Change the default password before production use (see [Password Setup](#password-setup) below).
+
 ### 3. Configure Server (if needed)
 
 Click ⚙️ in the top-right to change API server address.
+
+---
+
+## 🔐 Password Setup
+
+### Default Credentials
+
+The system ships with a default admin password:
+- **Username:** (no username field)
+- **Password:** `admin`
+
+### Changing the Password
+
+**IMPORTANT:** Change this password before using in production!
+
+#### Step 1: Generate a Bcrypt Hash
+
+Generate a secure bcrypt hash for your new password:
+
+```bash
+# Create a temporary script
+cat > /tmp/hash.js << 'EOF'
+const bcryptjs = require('bcryptjs');
+
+async function generateHash(password) {
+  const hash = await bcryptjs.hash(password, 10);
+  console.log('ADMIN_PASSWORD_HASH=' + hash);
+}
+
+// Replace 'NewPassword123!' with your desired password
+generateHash('NewPassword123!');
+EOF
+
+# Run it (from the project directory)
+node /tmp/hash.js
+```
+
+You'll see output like:
+```
+ADMIN_PASSWORD_HASH=$2a$10$mt.PFr/Ba0IrXrzyXxJGBeFfi4N6scaUfKh76t9eH/6sNBadCLAJW
+```
+
+#### Step 2: Set Environment Variable
+
+**Development (local testing):**
+
+```bash
+export ADMIN_PASSWORD_HASH="$2a$10$..."
+npm run dev
+```
+
+**Production (in .env file):**
+
+Create a `.env` file in the project root:
+
+```bash
+# .env
+ADMIN_PASSWORD_HASH=$2a$10$...
+JWT_SECRET=your-super-secret-random-key-here
+```
+
+Then start normally:
+```bash
+npm run dev
+# or for production
+npm run build && npm start
+```
+
+#### Step 3: Verify the Change
+
+Login with your new password at http://localhost:5173
+
+---
+
+## 🔑 Access Control
+
+### Public Access (No Password Needed)
+- 🏆 **Leaderboard** — Anyone can view live team rankings
+
+### Protected Access (Password Required)
+- 📝 **Data Entry** — Grade inject submissions
+- 📊 **Scores** — View scoring breakdown
+- 🔍 **Uptime Scoring** — Configure automated monitoring
+- ⚙️ **Management** — Configure teams, injects, webhooks
+- ⚙️ **Settings** — Change server address
+
+---
+
+## 🔒 Security Features
+
+- ✅ **JWT Tokens** — 24-hour secure sessions
+- ✅ **Bcrypt Hashing** — Industry-standard password hashing
+- ✅ **Token Expiration** — Auto-logout after 24 hours
+- ✅ **Public Leaderboard** — Competitors see real-time scores without login
+
+---
+
+## 📖 Complete Security Guide
+
+For detailed information about authentication, token management, and deployment security:
+
+👉 **[Read AUTHENTICATION.md](./AUTHENTICATION.md)**
+
+Topics covered:
+- How JWT tokens work
+- Token expiration and refresh
+- Multi-environment setup
+- HTTPS in production
+- Security best practices
+- Troubleshooting login issues
 
 ---
 
