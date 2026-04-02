@@ -172,6 +172,20 @@ Topics covered:
 
 ---
 
+## ⚙️ Configuration Guide
+
+→ **[Read CONFIGURATION.md](./CONFIGURATION.md)** for:
+
+- Server and frontend port configuration
+- Network exposure and deployment
+- Environment variables
+- Discord webhook setup
+- Production deployment
+- Custom scoring scripts
+- Troubleshooting configuration issues
+
+---
+
 ## Architecture
 
 ### Frontend (React + Vite)
