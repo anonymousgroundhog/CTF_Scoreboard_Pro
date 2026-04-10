@@ -16,11 +16,13 @@ export default function DataEntry() {
       const scores: Record<string, any> = {};
       for (const injectName of Object.keys(inject_data)) {
         const existing = team.injects[injectName] || {};
+        const hasExisting = injectName in team.injects;
         scores[injectName] = {
-          raw: existing.raw || 10,
+          raw: hasExisting ? (existing.raw ?? 10) : 10,
           subTime: existing.sub_time || '',
-          late: existing.late || 0,
-          final: existing.final || 10,
+          late: existing.late ?? 0,
+          final: hasExisting ? (existing.final ?? 10) : 10,
+          notCompleted: hasExisting && existing.raw === 0 && existing.final === 0 && !existing.sub_time,
         };
       }
       setFormScores(scores);
@@ -39,6 +41,20 @@ export default function DataEntry() {
   const handleLateChange = (injectName: string, value: string) => {
     const late = parseInt(value) || 0;
     updateScore(injectName, { late, userEditedLate: true });
+  };
+
+  const handleNotCompletedToggle = (injectName: string, checked: boolean) => {
+    if (checked) {
+      setFormScores((prev) => ({
+        ...prev,
+        [injectName]: { raw: 0, subTime: '', late: 0, final: 0, notCompleted: true, userEditedLate: false },
+      }));
+    } else {
+      setFormScores((prev) => ({
+        ...prev,
+        [injectName]: { ...prev[injectName], notCompleted: false, raw: 10, final: 10 },
+      }));
+    }
   };
 
   const updateScore = (injectName: string, updates: any, duration?: string) => {
@@ -74,10 +90,10 @@ export default function DataEntry() {
     for (const injectName of Object.keys(inject_data)) {
       const score = formScores[injectName] || { raw: 0, subTime: '', late: 0, final: 0 };
       toSave[injectName] = {
-        raw: parseFloat(String(score.raw)) || 0,
+        raw: parseFloat(String(score.raw)) ?? 0,
         sub_time: score.subTime || '',
-        late: score.late || 0,
-        final: score.final || 0,
+        late: score.late ?? 0,
+        final: score.final ?? 0,
       };
     }
 
@@ -153,6 +169,7 @@ export default function DataEntry() {
                   <th className="px-3 py-2 text-right min-w-[90px]">Sub Time</th>
                   <th className="px-3 py-2 text-right min-w-[80px]">Mins Late</th>
                   <th className="px-3 py-2 text-right min-w-[80px]">Final</th>
+                  <th className="px-3 py-2 text-center min-w-[90px]">No Submit</th>
                   <th className="px-3 py-2 text-center min-w-[90px]">Broadcast</th>
                 </tr>
               </thead>
@@ -174,10 +191,11 @@ export default function DataEntry() {
                           type="number"
                           value={score.raw}
                           onChange={(e) => handleRawChange(injectName, e.target.value)}
-                          className="input-field w-full text-xs"
+                          className="input-field w-full text-xs disabled:opacity-40"
                           step="0.5"
                           min="0"
                           max="10"
+                          disabled={score.notCompleted}
                         />
                       </td>
                       <td className="table-cell">
@@ -186,7 +204,8 @@ export default function DataEntry() {
                           value={score.subTime}
                           onChange={(e) => handleSubTimeChange(injectName, e.target.value)}
                           placeholder="HH:MM"
-                          className="input-field w-full text-xs"
+                          className="input-field w-full text-xs disabled:opacity-40"
+                          disabled={score.notCompleted}
                         />
                       </td>
                       <td className="table-cell">
@@ -194,11 +213,21 @@ export default function DataEntry() {
                           type="number"
                           value={score.late}
                           onChange={(e) => handleLateChange(injectName, e.target.value)}
-                          className="input-field w-full text-xs"
+                          className="input-field w-full text-xs disabled:opacity-40"
                           min="0"
+                          disabled={score.notCompleted}
                         />
                       </td>
                       <td className="table-cell text-right text-cyber-green font-bold">{score.final.toFixed(1)}</td>
+                      <td className="table-cell text-center">
+                        <input
+                          type="checkbox"
+                          checked={score.notCompleted || false}
+                          onChange={(e) => handleNotCompletedToggle(injectName, e.target.checked)}
+                          className="w-4 h-4 cursor-pointer accent-cyber-accent"
+                          title="Team did not complete this inject (zeroes out score)"
+                        />
+                      </td>
                       <td className="table-cell text-center">
                         <button
                           onClick={() => handleBroadcast(injectName)}

@@ -2,7 +2,7 @@
     "teams": {
         "VADER": {
             "school": "Wheaton Warrenville South HS",
-            "uptime": 49,
+            "uptime": 18,
             "red_team": 0,
             "defense": 0,
             "injects": {
@@ -64,13 +64,43 @@
                     "sub_time": "",
                     "late": 0,
                     "final": 10
+                },
+                "Inject 1: OSINT": {
+                    "raw": 10,
+                    "sub_time": "10:51",
+                    "late": 0,
+                    "final": 10
+                },
+                "Inject 2: APK Investigation": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Inject 3: Windows Malware": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Inject 4: Network Topology": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Test": {
+                    "raw": 10,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 10
                 }
             },
             "remarks": ""
         },
         "Free RAM.gov": {
             "school": "Wheaton Warrenville South HS",
-            "uptime": 27,
+            "uptime": 29,
             "red_team": 0,
             "defense": 0,
             "injects": {
@@ -132,12 +162,42 @@
                     "sub_time": "",
                     "late": 0,
                     "final": 10
+                },
+                "Inject 1: OSINT": {
+                    "raw": 10,
+                    "sub_time": "10:32",
+                    "late": 0,
+                    "final": 10
+                },
+                "Inject 2: APK Investigation": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Inject 3: Windows Malware": {
+                    "raw": 10,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 10
+                },
+                "Inject 4: Network Topology": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Test": {
+                    "raw": 10,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 10
                 }
             }
         },
         "Team 404": {
             "school": "Pekin Community HS",
-            "uptime": 38,
+            "uptime": 7,
             "red_team": 0,
             "defense": 0,
             "injects": {
@@ -195,6 +255,36 @@
                     "sub_time": ""
                 },
                 "Inject Test": {
+                    "raw": 10,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 10
+                },
+                "Inject 1: OSINT": {
+                    "raw": 10,
+                    "sub_time": "10:37",
+                    "late": 0,
+                    "final": 10
+                },
+                "Inject 2: APK Investigation": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Inject 3: Windows Malware": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Inject 4: Network Topology": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Test": {
                     "raw": 10,
                     "sub_time": "",
                     "late": 0,
@@ -204,7 +294,7 @@
         },
         "Team DHCP": {
             "school": "Pekin Community HS",
-            "uptime": 43,
+            "uptime": 33,
             "red_team": 0,
             "defense": 0,
             "injects": {
@@ -262,6 +352,36 @@
                     "sub_time": ""
                 },
                 "Inject Test": {
+                    "raw": 10,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 10
+                },
+                "Inject 1: OSINT": {
+                    "raw": 10,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 10
+                },
+                "Inject 2: APK Investigation": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Inject 3: Windows Malware": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Inject 4: Network Topology": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Test": {
                     "raw": 10,
                     "sub_time": "",
                     "late": 0,
@@ -271,7 +391,7 @@
         },
         "NCHS Cybersecurity": {
             "school": "Normal Community HS",
-            "uptime": 11,
+            "uptime": 13,
             "red_team": 0,
             "defense": 0,
             "injects": {
@@ -333,69 +453,64 @@
                     "sub_time": "",
                     "late": 0,
                     "final": 10
+                },
+                "Inject 1: OSINT": {
+                    "raw": 10,
+                    "sub_time": "10:27",
+                    "late": 0,
+                    "final": 10
+                },
+                "Inject 2: APK Investigation": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Inject 3: Windows Malware": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Inject 4: Network Topology": {
+                    "raw": 0,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 0
+                },
+                "Test": {
+                    "raw": 10,
+                    "sub_time": "",
+                    "late": 0,
+                    "final": 10
                 }
             }
         }
     },
     "inject_data": {
-        "Website inspection": {
-            "desc": "Team, we have been informed that the following image needs inspection:\nhttps://jupiter.challenges.picoctf.org/problem/9670/ \n\nFind the hidden flag in this website and submit it in your team’s inject-submissions channel on Discord.\nVerify SSL cert",
-            "sol": "Check for SHA256",
-            "time": "30",
-            "release": "10:55",
-            "due": "11:25"
-        },
-        "Certificate inspection": {
-            "desc": "How about we take you on an adventure on exploring digital certificate signing requests. Take a look at this CSR file: https://artifacts.picoctf.net/c/425/readmycert.csr \n\nFind the hidden flag in this file and submit it to your team’s inject-submissions channel on Discord.\nThis is a test inject for bot purposes",
+        "Inject 1: OSINT": {
+            "desc": "\"Time to complete: 30 min \n\nWe have been notified that a hacker has been infiltrating our systems.\nThe files can be downloaded using the link: https://drive.google.com/drive/folders/1AmuN76nsmlZKCI0rTdijs1URXzzkCpV1?usp=drive_link \n\nWe need to investigate the image1.jpg and image2.jpg files to figure out what is going on.\nBe sure to use Google Earth to Figure out the latitude and longitude of where these photos were taken from\n\nSubmit your findings in your team’s inject-submissions channel on Discord.\"",
             "sol": "",
             "time": "30",
-            "release": "11:25",
-            "due": "11:55"
+            "release": "",
+            "due": ""
         },
-        "Password Cracking": {
-            "desc": "Can you break into this super secure portal? https://jupiter.challenges.picoctf.org/problem/17682/ \nSubmit the flag in your team’s inject-submissions channel on Discord. It is in the same format as the previous flags.",
-            "sol": "",
-            "time": "30",
-            "release": "1:30",
-            "due": "2:00"
-        },
-        "Android App Malware": {
-            "desc": "Install the jadx tool using the following commands:\ngit clone https://github.com/skylot/jadx.git \ncd jadx\n./gradlew dist\n\nNext download the Wallpaper app: https://apkpure.com/homely-wallpaper/com.race.mely.wpaper/ \n\nInvestigate it and determine what is suspicious about this wallpaper app.\n\nSubmit the flag in your team’s inject-submissions channel on Discord. It is in the same format as the previous flags.",
-            "sol": "",
-            "time": "23",
-            "release": "2:37",
-            "due": "3:00"
-        },
-        "Asset Inventory": {
-            "desc": "Your predecessors did a poor job keeping documentation updated and we don't have an understanding of what services are running on our systems. Lacking a clear picture makes it difficult to make decisions on resource allocation. \n\nCreate a document that lists the following for each internal machine on your LAN:\n    • System Name\n    • O/S and Version (Windows, Linux etc.)\n    • IP Address and MAC Address\n    • Application(s) running\n    • List of Admin/User/Service Accounts (without passwords)\n    • List of Services running and versions\n    • List of Open Ports\n\nSubmit this document on your team’s inject-submissions channel on Discord.",
+        "Inject 2: APK Investigation": {
+            "desc": "\"Time to complete: 1 hr \n\nThe hacker has submitted to us a suspicious looking Android application. \nInvestigate the suspicious Homely Wallpaper_7.4.8_APKPure.apk file using jadx-gui tool and VirusTotal.\n\nVirusTotal Link: https://www.virustotal.com/gui/home/upload \n\ngit clone https://github.com/skylot/jadx.git \ncd jadx\n./gradlew dist\n\nMake sure to go to the build/jadx/bin to run the app.\n\nAPK Link: https://apkpure.com/homely-wallpaper/com.race.mely.wpaper/#google_vignette \n\nOnce you finish the analysis of suspicious details associated with the app submit your findings in your team’s inject-submissions channel on Discord. Gather as many details as possible.\"",
             "sol": "",
             "time": "60",
-            "release": "2:00",
-            "due": "3:00"
+            "release": "",
+            "due": ""
         },
-        "Cryptanalysis": {
-            "desc": "The one-time pad can be cryptographically secure, but not when you know the key. Can you solve this? We've given you the encrypted flag, key, and a table to help UFJKXQZQUNB with the key of SOLVECRYPTO. Can you use this table to solve it?. \n\nDecrypt the following message encrypted using a classical cipher: T ldvpo pgpcjzyp, hsle oz hp yppo ezolj?\nFlag: I asked everyone, what do we need today?",
+        "Inject 3: Windows Malware": {
+            "desc": "\"Time to complete: 1 hr\n\nGo to the url: https://www.malware-traffic-analysis.net/2025/03/10/index.html  \nDownload both zip files (located under ASSOCIATED FILES) to the Kali linux box and investigate using wireshark and Ghidra.\n\nThe zip files are password protected and use the password infected_20250310 Note, don't run any files on your system.\n\nNote: 2025-03-10-Remcos-RAT-infection-traffic.pcap.zip is where the Wireshark files are contained and 2025-03-10-email-and-malware-from-Remcos-RAT-infection.zip contains the executable file that you run through Ghidra.\n\nWarning: Under no circumstance should you run the executable or any other file you download.\n\nDownload and install the Ghydra and open the executable in Ghydra: https://github.com/NationalSecurityAgency/ghidra/releases \nRun ghidraRun file using: ./ghidraRun\n\nSubmit your findings in your team’s inject-submissions channel on Discord.\nZip File password Infected_20250310\"z",
             "sol": "",
-            "time": "35",
-            "release": "2:25",
-            "due": "3:00"
+            "time": "60",
+            "release": "",
+            "due": ""
         },
-        "NextCloud": {
-            "desc": "Install NextCloud (a dropbox clone) onto one of your servers, and set up the sync client on your internal Windows 7 client machine.  \n\nSet up the client to sync everything, add a file name “Team XX.txt” through the web browser interface to Nextcloud on the server, and show that it appears on the Windows side (in Windows Explorer, show the shared folder.  It may take a few minutes to sync.\n\nHave your room judge verify that the file appears in both the client (Windows Explorer) and the server (web browser interface).  Have them send us a Slack message that the inject is complete.\n\nHint: You’ll need to use HTTP, not HTTPS, to connect from client to server, since we don’t have signed certificates.",
-            "sol": "",
-            "time": "240",
-            "release": "3:00 PM",
-            "due": "7:00"
-        },
-        "Test Inject": {
-            "desc": "A new test.\n\nYou can ignore this message.",
-            "sol": "",
-            "time": "23",
-            "release": "2:00 PM",
-            "due": "3:00 PM"
-        },
-        "Inject Test": {
-            "desc": "My test",
+        "Inject 4: Network Topology": {
+            "desc": "\"Time to complete: 1 hr\n\nGenerate a network topology of your infrastructure. \n\nBe sure to include your ports that are open.\nAlso be sure to map out what services you have running.\n\nDetails about network topologies can be found at: https://www.nakivo.com/blog/types-of-network-topology-explained/ \n\nNetwork Mapping Software Online: https://app.diagrams.net/ \"",
             "sol": "",
             "time": "30",
             "release": "",
@@ -407,7 +522,11 @@
     },
     "broadcast_times": {
         "Test Inject": "13:12:59",
-        "Inject Test": "07:34:35"
+        "Inject Test": "20:20:04",
+        "Test": "08:45:18",
+        "Inject 1: OSINT": "10:20:16",
+        "Inject 2: APK Investigation": "11:04:09",
+        "Inject 3: Windows Malware": "13:14:18"
     },
     "scoring_config": {
         "Free RAM.gov": "10.111.21.218",
